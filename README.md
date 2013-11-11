@@ -1,5 +1,5 @@
-stupidhttp
-==========
+StupidHttpServer
+================
 
 StupidHttpServer is a simple embedded HTTP server library for Java.
 
