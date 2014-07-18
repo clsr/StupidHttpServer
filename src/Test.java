@@ -1,11 +1,11 @@
-import in.cefer.stupidhttp.StupidHttpCookie;
-import in.cefer.stupidhttp.StupidHttpForm;
-import in.cefer.stupidhttp.StupidHttpHandler;
-import in.cefer.stupidhttp.StupidHttpHeader;
-import in.cefer.stupidhttp.StupidHttpMuxer;
-import in.cefer.stupidhttp.StupidHttpRequest;
-import in.cefer.stupidhttp.StupidHttpResponse;
-import in.cefer.stupidhttp.StupidHttpServer;
+import net.clsr.stupidhttp.StupidHttpCookie;
+import net.clsr.stupidhttp.StupidHttpForm;
+import net.clsr.stupidhttp.StupidHttpHandler;
+import net.clsr.stupidhttp.StupidHttpHeader;
+import net.clsr.stupidhttp.StupidHttpMuxer;
+import net.clsr.stupidhttp.StupidHttpRequest;
+import net.clsr.stupidhttp.StupidHttpResponse;
+import net.clsr.stupidhttp.StupidHttpServer;
 
 import java.io.IOException;
 import java.util.logging.Level;

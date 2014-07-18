@@ -1,4 +1,4 @@
-package in.cefer.stupidhttp;
+package net.clsr.stupidhttp;
 
 /**
  * StupidHttpException represents a HTTP-related exception.

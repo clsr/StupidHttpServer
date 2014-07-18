@@ -1,4 +1,4 @@
-package in.cefer.stupidhttp;
+package net.clsr.stupidhttp;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -189,7 +189,7 @@ public class StupidHttpServer {
 		ByteArrayOutputStream buf = new ByteArrayOutputStream();
 		PrintStream bufps = new PrintStream(buf);
 		e.printStackTrace(bufps);
-		this.logError(buf.toString());
+		this.logError(buf.toString(), l);
 	}
 
 	private void logError(String s) {

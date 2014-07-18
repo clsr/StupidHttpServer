@@ -1,4 +1,4 @@
-package in.cefer.stupidhttp;
+package net.clsr.stupidhttp;
 
 import java.util.HashMap;
 import java.util.Map;

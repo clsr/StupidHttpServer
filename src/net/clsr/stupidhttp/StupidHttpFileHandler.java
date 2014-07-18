@@ -1,4 +1,4 @@
-package in.cefer.stupidhttp;
+package net.clsr.stupidhttp;
 
 import java.io.File;
 import java.net.MalformedURLException;

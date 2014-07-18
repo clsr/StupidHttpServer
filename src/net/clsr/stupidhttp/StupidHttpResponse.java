@@ -1,4 +1,4 @@
-package in.cefer.stupidhttp;
+package net.clsr.stupidhttp;
 
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
@@ -340,10 +340,7 @@ public class StupidHttpResponse {
 	 * @return The response
 	 */
 	public static StupidHttpResponse errorResponse(Exception e) {
-		StupidHttpResponse resp = new StupidHttpResponse();
-		resp.setCode(StupidHttpStatus.InternalServerError);
-		resp.setBody(String.format("%d %s: %s", StupidHttpStatus.InternalServerError, StupidHttpStatus.statusText(StupidHttpStatus.InternalServerError), e.getMessage()));
-		return resp;
+		return StupidHttpResponse.simpleResponse(StupidHttpStatus.InternalServerError, null, String.format("%d %s: %s", StupidHttpStatus.InternalServerError, StupidHttpStatus.statusText(StupidHttpStatus.InternalServerError), e.getMessage()));
 	}
 
 	/**
@@ -354,7 +351,7 @@ public class StupidHttpResponse {
 	 * @return The response
 	 */
 	public static StupidHttpResponse notFoundResponse(String path) {
-		return StupidHttpResponse.simpleResponse(StupidHttpStatus.NotFound, null, String.format("%d %s: %s", StupidHttpStatus.NotFound, StupidHttpStatus.statusText(StupidHttpStatus.NotFound), path));
+		return StupidHttpResponse.simpleResponse(StupidHttpStatus.NotFound, null, String.format("%d %s%s", StupidHttpStatus.NotFound, StupidHttpStatus.statusText(StupidHttpStatus.NotFound), path == null ? "" : ": " + path));
 	}
 
 	/**

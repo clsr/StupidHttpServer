@@ -1,4 +1,4 @@
-package in.cefer.stupidhttp;
+package net.clsr.stupidhttp;
 
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
@@ -38,6 +38,22 @@ public class StupidHttpRequest {
 		this.localAddress = s.getLocalSocketAddress().toString();
 
 		this.read(s.getInputStream());
+	}
+
+	/**
+	 * Read a request from an input stream.
+	 * 
+	 * @param in The input stream to read from
+	 * @param localAddress Local address that received the request
+	 * @param remoteAddress Remote address that sent the request
+	 * @throws IOException An exception with IO
+	 * @throws StupidHttpException Invalid request
+	 */
+	public StupidHttpRequest(InputStream in, String localAddress, String remoteAddress) throws IOException, StupidHttpException {
+		this.localAddress = localAddress;
+		this.remoteAddress = remoteAddress;
+
+		this.read(in);
 	}
 
 	/**
@@ -138,8 +154,8 @@ public class StupidHttpRequest {
 	 * @return The URL constructed from the request path and the Host header
 	 */
 	public String getUrl() {
-		String host = getHeader("host");
-		return String.format("%s://%s%s", "http", host == null ? this.getLocalAddress() : host, this.getPath());
+		String host = this.getHeader("host");
+		return String.format("%s://%s%s", "http", host == null ? this.getLocalAddress() : host, this.getRawPath());
 	}
 
 	/**
@@ -219,12 +235,7 @@ public class StupidHttpRequest {
 	 * @return The form parsed from the request body data
 	 */
 	public StupidHttpForm getPostForm() {
-		String p = null;
-		try {
-			if (this.body != null) {
-				p = new String(this.body, "UTF-8");
-			}
-		} catch (UnsupportedEncodingException e) {}
+		String p = this.getBodyString();
 		return new StupidHttpForm(p == null ? "" : p);
 	}
 

@@ -1,4 +1,4 @@
-package in.cefer.stupidhttp;
+package net.clsr.stupidhttp;
 
 /**
  * StupidHttpHeader represents a HTTP header entry.
